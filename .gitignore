@@ -218,3 +218,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.ipynb_checkpoints/
+.streamlit/secrets.toml
+
+# Generated datasets and trained models
+data/*
+models/*
+
+# Keep folder placeholders
+!data/.gitkeep
+!models/.gitkeep
