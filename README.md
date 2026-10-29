@@ -33,31 +33,29 @@ The dataset is synthetic and intended for educational and experimental use. It i
 
 ## Visual Results
 
-Add your generated plots to the `outputs/` folder and use the filenames below. Replace any filename with the actual name of your chart if it differs.
-
 ### 1. Failure Distribution
 
-![Machine failure distribution](outputs/failure_distribution.png)
+![Machine failure distribution](failure_distribution.png)
 
 ### 2. Correlation Heatmap
 
-![Feature correlation heatmap](outputs/correlation_heatmap.png)
+![correlation heatmap](outputs/correlation_heatmap.png)
 
-### 3. Confusion Matrix
+### 3. Maintenance List
 
-![Model confusion matrix](outputs/confusion_matrix.png)
+![Maintenance List](maintenance_list.png)
 
-### 4. ROC Curve
+### 4. Model Evaluation
 
-![ROC curve](outputs/roc_curve.png)
+![Model Evaluation](model_ev.png)
 
-### 5. Feature Importance
+### 5. Risk Level
 
-![Feature importance](outputs/feature_importance.png)
+![Risk Level](Risk.png)
 
 ### 6. Application Preview
 
-![Predictive maintenance application](outputs/output.png)
+![Dashboard](output.png)
 
 > If a visual is not generated yet, create it and save it at the specified path, or remove its image block until it is available. Only publish measured metrics from your actual test results.
 
