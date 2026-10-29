@@ -1,114 +1,77 @@
+# Industrial Predictive Maintenance
 
-# Industrial Machine Intelligence
-## Machine Failure Prediction & Predictive Maintenance
-
-An end-to-end Data Science and Machine Learning project designed to identify industrial machine failure risk and support proactive maintenance prioritization using operational data.
-
-The project applies machine learning to the UCI AI4I 2020 Predictive Maintenance Dataset and provides an interactive Streamlit application for exploring machine-risk predictions.
-
-**Repository:** https://github.com/sm292/industrial-predictive-maintenance
+An end-to-end machine learning project for predicting industrial equipment failure risk using sensor and operating-condition data. The project combines data preprocessing, exploratory analysis, model training, evaluation, and a Streamlit interface for predictive maintenance decision support.
 
 ## Project Overview
 
-Unexpected equipment failures can result in production downtime, maintenance costs, and operational inefficiencies.
+Unexpected equipment failures can lead to unplanned downtime, production losses, and higher maintenance costs. This project explores how machine learning can help identify potentially high-risk machine records and support proactive maintenance planning.
 
-This project explores how data-driven predictive maintenance can help identify machine records with elevated failure risk. It demonstrates a practical workflow covering dataset acquisition, data preparation, model training, evaluation, and interactive visualization.
+## Objectives
 
-The dataset is synthetic and intended for educational and experimental evaluation.
-
-## Business Objectives
-
-- Analyze machine operating conditions and failure patterns.
-- Develop a machine failure prediction workflow using machine learning.
-- Evaluate classification performance on held-out data.
-- Explore the effects of class imbalance and decision thresholds.
-- Present machine-risk insights through an interactive dashboard.
-- Demonstrate how predictive analytics can inform maintenance prioritization.
+- Analyse industrial sensor and operating-condition data.
+- Explore failure patterns and relationships between features.
+- Train a machine learning classification model.
+- Evaluate predictions using precision, recall, F1-score, ROC-AUC and PR-AUC where available.
+- Provide an interactive application for exploring failure-risk predictions.
 
 ## Dataset
 
-**Dataset:** AI4I 2020 Predictive Maintenance Dataset
+**UCI AI4I 2020 Predictive Maintenance Dataset**
 
-**Source:** UCI Machine Learning Repository
+Source: https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset
 
-https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset
-
-The dataset contains machine operating variables and failure indicators suitable for exploring predictive maintenance classification.
-
-Common variables in the dataset include:
-
-- Product quality type
-- Air temperature
-- Process temperature
-- Rotational speed
-- Torque
-- Tool wear
-- Machine failure indicator
-- Failure-type indicators
-
-The precise input features and target definition should follow the implementation in the training script.
-
-## Technology Stack
-
-| Category | Technologies |
-|---|---|
-| Programming | Python |
-| Data Processing | Pandas |
-| Machine Learning | Scikit-learn |
-| Visualization | Plotly |
-| Dashboard | Streamlit |
-| Data Source | UCI Machine Learning Repository |
-| Version Control | Git and GitHub |
+The dataset is synthetic and intended for educational and experimental use. It includes machine operating parameters and failure labels.
 
 ## Project Workflow
 
-### 1. Dataset Acquisition
+1. Data acquisition and validation
+2. Data cleaning and preprocessing
+3. Exploratory data analysis (EDA)
+4. Feature preparation and model training
+5. Test-set evaluation and classification analysis
+6. Prediction interface using Streamlit
 
-The data download script retrieves the dataset required for the project workflow.
+## Visual Results
 
-### 2. Data Preparation
+Add your generated plots to the `outputs/` folder and use the filenames below. Replace any filename with the actual name of your chart if it differs.
 
-Prepare the data for machine learning, including appropriate input feature selection, target definition, and validation.
+### 1. Failure Distribution
 
-### 3. Model Training
+![Machine failure distribution](outputs/failure_distribution.png)
 
-Train the machine failure classification model using the project's training pipeline.
+### 2. Correlation Heatmap
 
-### 4. Model Evaluation
+![Feature correlation heatmap](outputs/correlation_heatmap.png)
 
-Evaluate predictions on a held-out test set using appropriate classification metrics:
+### 3. Confusion Matrix
 
-- Precision
-- Recall
-- F1-score
-- Precision-Recall AUC (PR-AUC)
-- ROC-AUC
+![Model confusion matrix](outputs/confusion_matrix.png)
 
-Because machine failures may be relatively uncommon, accuracy alone is not sufficient to assess model performance.
+### 4. ROC Curve
 
-### 5. Interactive Dashboard
+![ROC curve](outputs/roc_curve.png)
 
-Use the Streamlit application to explore the functionality provided by the project and present machine-risk insights in an accessible interface.
+### 5. Feature Importance
 
-## Repository Structure
+![Feature importance](outputs/feature_importance.png)
 
-```text
-industrial-predictive-maintenance/
-├── README.md
-├── .gitignore
-├── requirements.txt
-├── download_data.py
-├── train_model.py
-└── app.py
-```
+### 6. Application Preview
 
-## Installation and Execution
+![Predictive maintenance application](outputs/output.png)
 
-### Prerequisites
+> If a visual is not generated yet, create it and save it at the specified path, or remove its image block until it is available. Only publish measured metrics from your actual test results.
 
-- Python installed
-- Git installed
-- Internet access for initial dataset retrieval
+## Technology Stack
+
+- **Language:** Python
+- **Data processing:** Pandas, NumPy
+- **Machine learning:** scikit-learn
+- **Visualisation:** Plotly and Matplotlib, where used
+- **Application:** Streamlit
+- **Environment:** Jupyter Notebook, VS Code or GitHub Codespaces
+- **Version control:** Git and GitHub
+
+## Run the Project Locally
 
 ### 1. Clone the repository
 
@@ -117,98 +80,89 @@ git clone https://github.com/sm292/industrial-predictive-maintenance.git
 cd industrial-predictive-maintenance
 ```
 
-### 2. Create a virtual environment
+### 2. Create and activate a virtual environment
 
-Windows:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-
-macOS/Linux:
+**Windows:**
 
 ```bash
 python -m venv .venv
+.venv\\Scripts\\activate
+```
+
+**Linux/macOS:**
+
+```bash
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
 ### 3. Install dependencies
 
 ```bash
-python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-### 4. Download the dataset
+### 4. Download the dataset and train the model
 
 ```bash
 python download_data.py
-```
-
-### 5. Train the model
-
-```bash
 python train_model.py
 ```
 
-Review the training script for the generated model artifacts and evaluation outputs.
-
-### 6. Launch the dashboard
+### 5. Launch the application
 
 ```bash
 streamlit run app.py
 ```
 
-Open the local URL displayed in the terminal.
+Run the commands from the repository root. Ensure the training script and application use the same saved model and data paths.
 
-## Model Evaluation and Responsible Use
+## Model Evaluation
 
-Model quality should be assessed using held-out data and metrics that account for class imbalance.
+Evaluate the trained model on a held-out test set. Report the following metrics when available:
 
-Precision measures the proportion of predicted failures that are actual failures. Recall measures the proportion of actual failures identified by the model. F1-score balances precision and recall, while PR-AUC and ROC-AUC provide complementary views of discrimination performance.
+| Metric | Purpose |
+|---|---|
+| Precision | Measures how many predicted failures are actual failures |
+| Recall | Measures how many actual failures are detected |
+| F1-score | Balances precision and recall |
+| ROC-AUC | Measures ranking performance across thresholds |
+| PR-AUC | Useful for evaluating imbalanced failure classes |
+| Confusion matrix | Shows true and false predictions by class |
 
-Threshold selection should reflect the relative costs of missed failures and unnecessary inspections.
+Because equipment failures may be rare, accuracy alone is not sufficient. Threshold selection should consider the relative costs of missed failures and unnecessary inspections.
 
-No performance figures are claimed in this README. Refer to reproducible evaluation outputs from the current training pipeline when reporting results.
+## Business Applications
 
-## Potential Industrial Applications
-
-- Maintenance prioritization
-- Machine-risk screening
-- Operational data analysis
-- Failure-pattern investigation
-- Predictive maintenance research
-- Decision support for maintenance teams
-
-These are potential applications rather than verified operational outcomes.
+- Prioritising machine inspections
+- Supporting preventive maintenance planning
+- Exploring sensor patterns associated with equipment failure
+- Reducing dependence on purely reactive maintenance strategies
+- Building a foundation for future industrial monitoring systems
 
 ## Limitations
 
 - The dataset is synthetic and may not represent real factory conditions.
-- Predictions do not guarantee that a machine will or will not fail.
-- Performance on this dataset does not establish generalization to unseen industrial environments.
-- Real-world use would require validation using representative equipment data, operational testing, and appropriate engineering oversight.
-
-The model should not be used as the sole basis for safety-critical maintenance decisions.
+- Model performance depends on data quality, feature selection and test methodology.
+- Predictions require validation on representative operational data before deployment.
+- The application is a portfolio project, not a certified industrial safety system.
 
 ## Future Improvements
 
-- Add explainability using feature importance or SHAP.
-- Explore cost-sensitive threshold selection.
-- Introduce model comparison and cross-validation.
-- Add automated tests and model artifact versioning.
-- Integrate validated real-world industrial sensor data.
-- Extend monitoring and reporting capabilities.
+- Compare multiple classification algorithms and tune decision thresholds.
+- Add explainability using SHAP or permutation importance where supported.
+- Implement batch prediction and downloadable reports.
+- Add data-drift monitoring and model-version tracking.
+- Deploy the application with appropriate validation, monitoring and access controls.
 
 ## Author
 
 **Sumit Mondal**
 
-Data Science | Machine Learning | Python | Predictive Analytics
-
 GitHub: https://github.com/sm292
 
-## License
+LinkedIn: https://www.linkedin.com/in/sumit-mondal-6a07b0174
 
-Refer to the repository's license information for permitted use and distribution.
+---
+
+*Built as a machine learning portfolio project focused on industrial analytics and predictive maintenance.*
